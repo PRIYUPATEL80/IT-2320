@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>Fibonacci Sequence</title> 
+   <script>
+       "use strict"
+       var fibNum = prompt("How many numbers in the sequence?"); 
+	   fibNum = parseInt(fibNum);
+       var fibArray = [];  // declare the array
+	   fibArray[0] = 0;
+	   fibArray[1] = 1;
+	  // fill the array
+	  for (var i=2; i<fibNum; i++) {
+		  fibArray[i] = fibArray[i-2]+fibArray[i-1];
+	} 
+		  // write out the results
+	for (i=0; i<fibNum; i++) {
+		  document.write(fibArray[i]+"<br>");
+	} 
+	  
+	   // calculate the ratio
+	   var ratio = fibArray[fibNum-1]/fibArray[fibNum-2];
+	   document.write("Ratio: " + ratio);
+	</script>
+</head> 
+<body>
+   <h2>Priyanka Patel - IT 2320 - Lab 2</h2>
+   gee, why did this come out at the bottom?
+</body> 
+</html>
