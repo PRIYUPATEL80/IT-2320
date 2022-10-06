@@ -1,0 +1,88 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IT 2320 - Lab 5 - Timer </title>
+    <style>
+        
+    </style>
+    <script>
+        "use script"
+		var timer;
+		var seconds = 0;
+		var minutes = 0;
+		var tenths = 0;
+		var running = false;
+		
+		function startTimer() {
+			if (!running){		  
+				timer  = setInterval( displayTime, 100);
+				running = true;
+			}
+		}
+		function stopTimer() {
+			clearInterval(timer);
+			running = false;
+		}
+		function resetTimer() {
+			seconds = 0;
+			tenths = 0;
+			minutes = 0;
+			document.getElementById("display").innerHTML = minutes + ":" + seconds +"." + tenths;
+		}
+		
+		function displayTime() {
+			tenths++;
+			if (tenths==10) {
+				tenths = 0;
+				seconds++
+			}
+		    if (seconds==60) {
+			    seconds = 0;
+				minutes++
+			}
+			if (minutes==60) {
+				minutes = 0;
+			}
+						
+			document.getElementById("display").innerHTML = minutes + ":" + seconds +"." + tenths;
+		}
+		
+		window.onload = function() {
+		   document.getElementById("start").onclick = startTimer;
+		   document.getElementById("stop").onclick = stopTimer;
+		   document.getElementById("reset").onclick = resetTimer;
+		}
+        
+		   
+		
+    </script>
+</head>
+<body>
+    <h2></h2>
+      <span id="display"></span><br /><br/>
+	  <button type ="button" id="start"  >START</button>
+	  <button type ="button" id="stop"  >STOP</button>
+	  <button type ="button" id="reset" >RESET</button>
+	  
+	  
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
