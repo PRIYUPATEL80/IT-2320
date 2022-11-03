@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script>
+	window.onload = function(){
+		$("#go").click(function() {
+	
+			var zipCode = $('#zipCode').val();
+			var url = "https://api.openweathermap.org/data/2.5/weather?zip=" + zipCode + ",us&appid=d83e0dee7fe7e194e268a50cfaa11714&units=imperial";
+			console.log(url);
+			$.ajax({
+			method: "GET",
+			url: url,
+			dataType: "json"
+			}).done(function (weatherResponse) {
+			$("#city").html("City: "+ weatherResponse.name);
+			$("#currentcondition").html("Currentcondition: " + weatherResponse.weather[0].main);
+			$("#temp").html("Temperature: " + weatherResponse.main.temp);
+			$("#wind").html("Wind Speed and Direction: " + weatherResponse.wind.speed);
+			$("#humidity").html("Humidity: " + weatherResponse.main.humidity);
+			$("#temMinMax").html("Temp Min and Max: " + weatherResponse.main.temp_min + "," + weatherResponse.main.temp_max);
+		
+          // here will be the code that takes the JSON returned in the structure weatherResponse and diplays it on the page.
+	  
+          // here is one example
+          
+		}); 
+	});
+ };
+    
+ 
+</script>
+</head>
+<body>
+<h2> Priyanka Patel - IT 2320 - Lab 9 Weather APIS</h2>
+<span> Insert Zip Code: <input type="text"id="zipCode"><button id = "go">GO</button></span><br>
+<span id="city">City: </span><br>
+<span id="currentcondition">Current Codition: </span><br>
+<span id="temp">Temperature: </span><br>
+<span id="wind">Wind Speed and Direction: </span><br>
+<span id="humidity"> Humidity: </span><br>
+<span id="temMinMax"> Tem Min and Max: </span>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
