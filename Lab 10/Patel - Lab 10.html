@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+	window.onload = function(){
+		$("#lab10").click(function() {
+			//Get values
+			var string = $("#textArea").val();
+			var character = $("#searchChar").val();
+			var numDays = $("#numDays").val();
+			
+			//Count number of words entered
+			var words = string.trim().split(" ");
+			console.log(words);
+			$("#numWords").html(words.length);
+			
+			//Count occurances of searchChar
+			/*var occurence = string.split(character);
+			$("#occur").html(occurence.length - 1);*/
+			var ct = 0;
+			for (i=0; i < string.length; i++){
+				if (string[i] == character.toUpperCase() || string[i] == character.toLowerCase()){
+				ct++;
+				console.log(ct);
+				}
+			}
+			$("#occur").html(ct);
+			
+			// uppercase the text
+			$("#ALLCAPS").html(string.toUpperCase());
+			
+			//"Display text with searChar 
+			var string2 = string.replaceAll(character.toUpperCase(), "");
+			console.log(string2);
+			console.log(character.toLowerCase());
+			$("#removeChar").html(string2.replaceAll(character.toLowerCase(), ""));
+			
+			// Add days
+			var date = new Date();
+			date.setDate(date.getDate() + parseInt(numDays));
+			$("#addDays").html(date.toLocaleDateString());
+			
+			
+			
+	
+	
+	
+		});
+	
+
+};
+
+
+
+
+
+    // script 
+</script>
+<style>
+  table { border-collapse: separate;
+          border-spacing: 15px;      }
+</style>
+</head>
+<body>
+<h2>Priyanka Patel - IT 2320 - Lab 10</h2>
+<h3>Working with Strings and Dates</h3>
+<form>
+<table>
+	<tr>
+		<td>Select the <strong>Search Character</strong>:</td><td><select id="searchChar">
+		                               <option value=""></option>
+								       <option value="A">A</option>
+								       <option value="B">B</option>
+                                       <option value="C">C</option>
+                                       <option value="D">D</option>
+                                       <option value="E">E</option>
+                                       <option value="F">F</option>	                                          
+									   <option value="G">G</option>
+                                       <option value="H">H</option>
+                                       <option value="I">I</option>
+                                       <option value="J">J</option>
+                                       <option value="K">K</option>
+                                       <option value="L">L</option>
+                                       <option value="M">M</option>
+                                       <option value="N">N</option>
+                                       <option value="O">O</option>
+                                       <option value="P">P</option>
+                                       <option value="Q">Q</option>
+                                       <option value="R">R</option>
+                                       <option value="S">S</option>
+                                       <option value="T">T</option>
+                                       <option value="U">U</option>
+                                       <option value="V">V</option>
+                                       <option value="W">W</option>
+                                       <option value="X">X</option>
+                                       <option value="Y">Y</option>
+                                       <option value="Z">Z</option>
+								   </select>
+								</td>
+	</tr>
+	<tr>
+	    <td>Type or paste in some text:</td>
+		<td><textarea id="textArea" cols="40" rows="15"></textarea></td>
+	</tr>
+	<tr>
+	    <td>Date Modifier - Number of Days:</td><td><input type="number" id="numDays" ></td>
+	</tr>
+    <tr>
+	    <td>Number of words entered:</td><td id="numWords">****</td>
+	</tr>
+	<tr>
+	    <td>Number of occurances of the search character:</td>
+	    <td id="occur">****</td>
+	</tr>
+    <tr>
+	    <td>Display the entered text in <strong>ALL CAPS</strong>:</td>
+	    <td id="ALLCAPS"> **** </td>
+	</tr>
+    <tr>
+	    <td>Display the entered text with the search character <strong>removed</strong>:</td>
+	    <td id="removeChar"> **** </td>
+	</tr>
+    <tr>
+	    <td>Add the number of days in Date Modifier to the current date<br/>Display the resulting date as MM/DD/YYYY:</td>
+	    <td id="addDays"> **** </td>
+	</tr>
+	<tr>
+		   <td><input type="reset" id="reset" name="reset" value="Reset"></td>
+           <td><button type = "button" id=lab10>Submit</button></td>
+	</tr>
+
+</table>
+</form>
+</body>
+
+</html>
