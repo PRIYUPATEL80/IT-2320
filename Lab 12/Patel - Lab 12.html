@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+</style>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+function getprimes(){
+//$("#primebutton").click(function(){
+var primes = [];
+primes[0] = 1;
+primes[1] = 2;
+var n = $("#prime").val();
+	for(var i=3; i<=n; i=i+2){
+		console.log(i);
+		isPrime = true;
+		for(d=3; d<= Math.ceil(Math.sqrt(i));d++){
+			
+			if(i%d==0){
+				isPrime = false;
+				break;
+			}
+		}
+		if (isPrime){
+				primes.push(i);
+		}
+	}
+	results = "";
+	for (i=0; i<primes.length; i++){
+		results+=primes[i]+"<br>";
+		$("#results").html(results);
+	}
+}
+
+function gcd(){
+	var a = $("#gcda").val();
+	var b = $("#gcdb").val();
+	
+	if (a<b){
+		var temp = a;
+		a = b;
+		b = temp;
+	}
+	var rem = a%b;
+	while(rem!=0){
+		a=b;
+		b=rem;
+		rem=a%b;
+	}
+	$("#results").html("gcd = "+b);
+
+
+
+}
+
+</script>
+
+</head>
+<body>
+<h2>Priyanka Patel - Lab 12xxx</h2>
+<input type = "text" id = "prime"> <button type = "button" id = "primebutton" onclick = "getprimes()"> PRIMES </button> <br> </br>
+<input type = "text" id = "gcda"> <input type = "text" id = "gcdb"> <button type = "button" id = "gcdbutton" onclick = "gcd()"> GCD </button> <br> </br>
+<span id="results"> *** </span>
+</body></html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
