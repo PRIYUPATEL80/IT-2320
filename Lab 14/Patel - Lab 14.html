@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <style>
+   
+    </style>
+    <script>
+        "use strict"
+		
+		class Car{
+		constructor(make, model, color ) {
+			this.make = make;
+			this.model = model;
+			this.color = color;
+		}
+		describe(){
+			return "This is a " + this.color + " " + this.make + " " + this.model;
+		
+		}
+	}
+	  
+	class ClownCar extends Car{
+	describe(){
+			return "This is a " + this.color + " " + this.make + " " + this.model + " ClownCar!";
+		}
+			
+	}
+	
+	function showObj(){
+		var make = document.getElementById("make").value;
+		var model = document.getElementById("model").value;
+		var color = document.getElementById("color").value;
+		var clown = document.getElementById("clown").checked;
+		if (clown) {
+			var car = new ClownCar (make, model, color);
+		
+		} else {
+			var car = new Car (make, model, color);
+		}
+		document.getElementById("output").innerHTML = car.describe();
+	}
+	
+		
+		 
+    </script>
+    <title>JS Classes and Objects</title>
+
+</head>
+<body>
+    <h2>Priyanka Patel - Lab 14 - IT 2320</h2> 
+	Make: <input type="text" id="make"><br />
+	Model: <input type="text" id="model"><br />
+	Color: <input type="text" id="color"><br />
+	<input type="checkbox" id="clown" value = "Y"> Clown Car<br /><br />
+	<button type="button" id="goButton" onclick= "showObj()">GO</button>
+	<p id="output"></p>
+
+</body>
+</html>
+
+
+
+
+
